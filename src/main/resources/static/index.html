@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head>
+  	<meta charset="UTF-8" /> <!--spanish-->
+  </head>
+  <body>
+    <h1>Info</h1>
+    <ul>
+	    <li  th:each="persona:${personas}">
+	    	<span   th:text="${persona.nombre}">nombre</span>
+	    	(<span   th:text="${persona.edad}">edad</span>)
+	    </li>
+    </ul>
+  </body>
+</html>
