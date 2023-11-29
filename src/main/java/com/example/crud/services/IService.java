@@ -1,16 +1,18 @@
 package com.example.crud.services;
 
+import org.hibernate.mapping.List;
+
 //interface needed if it's used by more than one class
 public interface IService<T> {
 	
-	public T get();
+	List getAll();
     
-    public T get(Long id);
+    T get(Long id);
     
-    public void add(T t);
+    void create(T t);
     
-    public void edit(T t);
+    void edit(T t);
     
-    public void delete(T t);
+    void delete(Long id);
 
 }
