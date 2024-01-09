@@ -1,6 +1,5 @@
 package com.example.crud.model;
 
-//jakarta? javax?
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,10 +19,8 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	//@Column("names")
 	@Column @Basic
 	private String name;
 	private String mail;
-	
 	
 }

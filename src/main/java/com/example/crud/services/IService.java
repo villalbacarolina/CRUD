@@ -1,11 +1,10 @@
 package com.example.crud.services;
 
-import org.hibernate.mapping.List;
+import java.util.List;
 
-//interface needed if it's used by more than one class
 public interface IService<T> {
 	
-	List getAll();
+    List<T> getAll();
     
     T get(Long id);
     
@@ -14,5 +13,4 @@ public interface IService<T> {
     void edit(T t);
     
     void delete(Long id);
-
 }
