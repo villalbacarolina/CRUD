@@ -14,6 +14,7 @@ public class MeetingService implements ICrudService<Meeting> {
     @Autowired 
     private MeetingRepository meetingRepository;
 
+    
 	@Override
 	public List<Meeting> get() {
 		return meetingRepository.findAll();
@@ -24,18 +25,15 @@ public class MeetingService implements ICrudService<Meeting> {
 		return meetingRepository.findById(id).orElse(null);
 	}
 
-
 	@Override
 	public void add(Meeting m) {
 		meetingRepository.save(m);
 	}
 
-
 	@Override
 	public void edit(Meeting m) {
 		meetingRepository.save(m);
 	}
-
 
 	@Override
 	public void delete(Long id) {
