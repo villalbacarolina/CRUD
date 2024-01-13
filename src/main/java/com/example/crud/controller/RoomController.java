@@ -8,46 +8,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.crud.model.Person;
-import com.example.crud.services.PersonService;
-
-import lombok.RequiredArgsConstructor; //:(
+import com.example.crud.model.Room;
+import com.example.crud.services.CrudService;
+import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RestController
-@RequestMapping("/people")
-public class PersonController {
+@RequestMapping("/room")
+@RequiredArgsConstructor
+public class RoomController {
 
-    private final PersonService perServ;
-    
-    //because @RequiredArgsConstructor doesn't work :(
-    public PersonController(PersonService perServ) {
-        this.perServ = perServ;
-    }
+    private final CrudService<Room> crudService;
 
     @PostMapping("/create")
-    public void create(@RequestBody Person p) {
-        perServ.create(p);
+    public void create(@RequestBody Room r) {
+        crudService.create(r);
     }
 
     @PutMapping("/edit")
-    public void edit(@RequestBody Person p) {
-        perServ.edit(p);
+    public void edit(@RequestBody Room r) {
+        crudService.edit(r);
     }
 
     @GetMapping("/get-all")
-    public List<Person> getAll() {
-        return perServ.getAll();
+    public List<Room> getAll() {
+        return crudService.getAll();
     }
 
     @GetMapping("/get/{id}")
-    public Person get(@PathVariable Long id) {
-        return perServ.get(id);
+    public Room get(@PathVariable Long id) {
+        return crudService.get(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        perServ.delete(id);
+        crudService.delete(id);
     }
 }

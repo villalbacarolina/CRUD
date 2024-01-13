@@ -1,7 +1,7 @@
 package com.example.crud.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +14,13 @@ import lombok.Setter;
 @Getter @Setter 
 @NoArgsConstructor @AllArgsConstructor
 @Entity 
-public class Person {
+public class Meeting {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column @Basic
-	private String name;
-	private String mail;
+	private int id;
+	
+	private LocalDateTime date;
+	private String subject;
 	
 }

@@ -2,7 +2,7 @@ package com.example.crud.services;
 
 import java.util.List;
 
-public interface IService<T> {
+public interface ICrudService<T> {
 	
     List<T> getAll();
     
