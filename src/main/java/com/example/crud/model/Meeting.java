@@ -18,7 +18,7 @@ public class Meeting {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int idMeeting;
 	
 	private LocalDateTime date;
 	private String subject;

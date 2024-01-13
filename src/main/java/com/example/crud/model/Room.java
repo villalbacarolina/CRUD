@@ -16,7 +16,7 @@ public class Room {
 	
 	@Id
 	@Column(length = 20)
-	private String id;
+	private String idRoom;
 	@Basic
 	private String description;
 	@Basic

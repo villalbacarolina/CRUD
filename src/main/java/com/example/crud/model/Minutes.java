@@ -16,7 +16,7 @@ public class Minutes {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int idMinutes;
 
 	private String content;
 }

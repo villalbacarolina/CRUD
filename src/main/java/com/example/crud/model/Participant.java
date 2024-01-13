@@ -17,7 +17,7 @@ public class Participant{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int idParticipant;
 
 	@Column(unique = true)
 	private String participantNumber;
