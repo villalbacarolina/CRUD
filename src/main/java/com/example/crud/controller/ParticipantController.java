@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.crud.model.Participant;
-import com.example.crud.services.CrudService;
+import com.example.crud.services.ParticipantService;
+
 import lombok.RequiredArgsConstructor;
 import java.util.List;
 
@@ -18,30 +19,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ParticipantController {
 
-    private final CrudService<Participant> crudService;
+	private final ParticipantService participantService;
 
     @PostMapping("/create")
     public void create(@RequestBody Participant p) {
-        crudService.create(p);
+        participantService.add(p);
     }
 
     @PutMapping("/edit")
     public void edit(@RequestBody Participant p) {
-        crudService.edit(p);
+        participantService.edit(p);
     }
 
     @GetMapping("/get-all")
     public List<Participant> getAll() {
-        return crudService.getAll();
+        return participantService.get();
     }
 
     @GetMapping("/get/{id}")
     public Participant get(@PathVariable Long id) {
-        return crudService.get(id);
+        return participantService.get(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        crudService.delete(id);
+        participantService.delete(id);
     }
 }

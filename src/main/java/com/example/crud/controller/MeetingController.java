@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.crud.model.Meeting;
-import com.example.crud.services.CrudService;
+import com.example.crud.services.MeetingService;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
 
@@ -18,30 +18,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MeetingController {
 
-    private final CrudService<Meeting> crudService;
+    private final MeetingService meetingService;
 
     @PostMapping("/create")
     public void create(@RequestBody Meeting m) {
-        crudService.create(m);
+        meetingService.add(m);
     }
 
     @PutMapping("/edit")
     public void edit(@RequestBody Meeting m) {
-        crudService.edit(m);
+        meetingService.edit(m);
     }
 
     @GetMapping("/get-all")
     public List<Meeting> getAll() {
-        return crudService.getAll();
+        return meetingService.get();
     }
 
     @GetMapping("/get/{id}")
     public Meeting get(@PathVariable Long id) {
-        return crudService.get(id);
+        return meetingService.get(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        crudService.delete(id);
+        meetingService.delete(id);
     }
 }

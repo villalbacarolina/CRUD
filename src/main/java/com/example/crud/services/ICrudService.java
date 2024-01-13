@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface ICrudService<T> {
 	
-    List<T> getAll();
+    List<T> get();
     
     T get(Long id);
     
-    void create(T t);
+    void add(T t);
     
     void edit(T t);
     
