@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.crud.model.Meeting;
 import com.example.crud.model.Participant;
 import com.example.crud.repository.ParticipantRepository;
 
@@ -34,7 +35,7 @@ public class ParticipantService implements ICrudService<Participant> {
 
 
 	@Override
-	public void edit(Participant p) {
+	public void update(Participant p) {
 		participantRepository.save(p);
 	}
 
@@ -43,4 +44,5 @@ public class ParticipantService implements ICrudService<Participant> {
 	public void delete(Long id) {
 		participantRepository.deleteById(id);
 	}
+	
 }

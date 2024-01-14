@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.crud.model.Minutes;
-import com.example.crud.services.MinutesService;
+import com.example.crud.model.Minute;
+import com.example.crud.services.MinuteService;
 
 import lombok.RequiredArgsConstructor;
 import java.util.List;
@@ -17,32 +17,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/minutes")
 @RequiredArgsConstructor
-public class MinutesController {
+public class MinuteController {
 
-	private final MinutesService minutesService;
+	private final MinuteService minuteService;
 
-    @PostMapping("/create")
-    public void create(@RequestBody Minutes m) {
-        minutesService.add(m);
+    @PostMapping("/add")
+    public void add(@RequestBody Minute m) {
+        minuteService.add(m);
     }
 
-    @PutMapping("/edit")
-    public void edit(@RequestBody Minutes m) {
-        minutesService.edit(m);
+    @PutMapping("/update")
+    public void update(@RequestBody Minute m) {
+        minuteService.update(m);
     }
 
     @GetMapping("/get-all")
-    public List<Minutes> getAll() {
-        return minutesService.get();
+    public List<Minute> get() {
+        return minuteService.get();
     }
 
     @GetMapping("/get/{id}")
-    public Minutes get(@PathVariable Long id) {
-        return minutesService.get(id);
+    public Minute get(@PathVariable Long id) {
+        return minuteService.get(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        minutesService.delete(id);
+        minuteService.delete(id);
     }
 }

@@ -20,18 +20,18 @@ public class RoomController {
 
 	private final RoomService roomService;
 
-    @PostMapping("/create")
-    public void create(@RequestBody Room r) {
+    @PostMapping("/add")
+    public void add(@RequestBody Room r) {
         roomService.add(r);
     }
 
-    @PutMapping("/edit")
-    public void edit(@RequestBody Room r) {
-        roomService.edit(r);
+    @PutMapping("update")
+    public void update(@RequestBody Room r) {
+        roomService.update(r);
     }
 
     @GetMapping("/get-all")
-    public List<Room> getAll() {
+    public List<Room> get() {
         return roomService.get();
     }
 

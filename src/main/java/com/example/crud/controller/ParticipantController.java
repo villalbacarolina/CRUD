@@ -21,18 +21,18 @@ public class ParticipantController {
 
 	private final ParticipantService participantService;
 
-    @PostMapping("/create")
-    public void create(@RequestBody Participant p) {
+    @PostMapping("/add")
+    public void add(@RequestBody Participant p) {
         participantService.add(p);
     }
 
-    @PutMapping("/edit")
-    public void edit(@RequestBody Participant p) {
-        participantService.edit(p);
+    @PutMapping("/update")
+    public void update(@RequestBody Participant p) {
+        participantService.update(p);
     }
 
     @GetMapping("/get-all")
-    public List<Participant> getAll() {
+    public List<Participant> get() {
         return participantService.get();
     }
 

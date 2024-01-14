@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.crud.model.Meeting;
+import com.example.crud.model.Participant;
 import com.example.crud.services.MeetingService;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
@@ -20,22 +21,22 @@ public class MeetingController {
 
     private final MeetingService meetingService;
 
-    @PostMapping("/create")
-    public void create(@RequestBody Meeting m) {
+    @PostMapping("/add")
+    public void add(@RequestBody Meeting m) {
         meetingService.add(m);
     }
 
-    @PutMapping("/edit")
-    public void edit(@RequestBody Meeting m) {
-        meetingService.edit(m);
+    @PutMapping("/update")
+    public void update(@RequestBody Meeting m) {
+        meetingService.update(m);
     }
 
-    @GetMapping("/get-all")
-    public List<Meeting> getAll() {
+    @GetMapping("s")
+    public List<Meeting> get() {
         return meetingService.get();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public Meeting get(@PathVariable Long id) {
         return meetingService.get(id);
     }
@@ -44,4 +45,11 @@ public class MeetingController {
     public void delete(@PathVariable Long id) {
         meetingService.delete(id);
     }
+    
+    @PostMapping("/add-participant-to-meeting/{idMeeting}/")
+    public void addParticipantToMeeting(@PathVariable Long idMeeting, @RequestBody Long idParticipant) {
+        meetingService.addParticipantsToMeeting(idMeeting, idParticipant);
+    }
+    
+    
 }

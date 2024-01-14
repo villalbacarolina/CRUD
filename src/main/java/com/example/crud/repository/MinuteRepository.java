@@ -2,9 +2,9 @@ package com.example.crud.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.crud.model.Minutes;
+import com.example.crud.model.Minute;
 
 @Repository
-public interface MinutesRepository extends JpaRepository<Minutes,Long>{
+public interface MinuteRepository extends JpaRepository<Minute,Long>{
 
 }

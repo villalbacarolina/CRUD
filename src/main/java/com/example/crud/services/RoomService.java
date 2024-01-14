@@ -34,7 +34,7 @@ public class RoomService implements ICrudService<Room> {
 
 
 	@Override
-	public void edit(Room r) {
+	public void update(Room r) {
 		roomRepository.save(r);
 	}
 

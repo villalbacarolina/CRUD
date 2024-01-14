@@ -1,17 +1,17 @@
 package com.example.crud.model;
 
+import java.util.HashSet;
+import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter 
-@NoArgsConstructor @AllArgsConstructor
+@Getter @Setter
 @Entity 
 public class Participant{
 	
@@ -25,4 +25,34 @@ public class Participant{
 	private String name;
 	private String lastName;
 	
+	@ManyToMany
+	private Set<Meeting> meetings;
+	
+	//________________________CONSTRUCTORS________________________//
+	
+	
+	public Participant() {
+		meetings = new HashSet<Meeting>();
+	}
+	
+	public Participant(String participantNumber, String name, String lastName) {
+		this();
+		this.participantNumber = participantNumber;
+		this.name = name;
+		this.lastName = lastName;
+	}
+	
+	
+	//__________________________METHODS___________________________//
+	
+	
+	public void addMeeting(Meeting meeting) {
+		meetings.add(meeting);
+		if (!meeting.getParticipants().contains(this))
+			meeting.addParticipant(this);
+	}
+	
+	public void deleteMeeting(Meeting m){
+		meetings.remove(m);
+	}
 }
