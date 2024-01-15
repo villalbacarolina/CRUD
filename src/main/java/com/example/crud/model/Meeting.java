@@ -56,6 +56,10 @@ public class Meeting {
 	
 	
 	public void addParticipant(Participant participant) {
+		if(room==null)
+			throw new RuntimeException("ERROR: Unassigned room.");
+		if(room.fullCapacity())
+			throw new RuntimeException("ERROR: The room is at full capacity.");
 		participants.add(participant);
 		if (!participant.getMeetings().contains(this))
 			participant.addMeeting(this);

@@ -34,5 +34,9 @@ public class Room{
 			meetings = new LinkedList<Meeting>();
 		meetings.add(meeting);
 	} 
+	
+	public boolean fullCapacity() {
+		return capacity <= meetings.size();
+	}
 
 }

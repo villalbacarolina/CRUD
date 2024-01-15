@@ -3,11 +3,8 @@ package com.example.crud.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.crud.model.Meeting;
 import com.example.crud.model.Participant;
 import com.example.crud.repository.ParticipantRepository;
-
 import jakarta.transaction.Transactional;
 
 @Service
